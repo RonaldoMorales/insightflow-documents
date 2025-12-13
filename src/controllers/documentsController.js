@@ -130,6 +130,24 @@ const deleteDocument = (req, res) => {
   }
 };
 
+// Listar todos los documentos activos
+const getAllDocuments = (req, res) => {
+  try {
+    const activeDocuments = documents.filter(doc => !doc.deleted);
+    
+    res.status(200).json({
+      count: activeDocuments.length,
+      documents: activeDocuments
+    });
+  } catch (error) {
+    console.error('Error al listar documentos:', error);
+    res.status(500).json({ 
+      error: 'Error al listar documentos',
+      details: error.message 
+    });
+  }
+};
+
 module.exports = {
   createDocument,
   getDocumentById,
