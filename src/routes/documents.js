@@ -6,10 +6,12 @@ const {
   createDocument,
   getDocumentById,
   updateDocument,
-  deleteDocument
+  deleteDocument,
+  getAllDocuments
 } = require('../controllers/documentsController');
 
 // Rutas
+router.get('/', getAllDocuments)
 router.post('/', createDocument);
 router.get('/:id', getDocumentById);
 router.patch('/:id', updateDocument);

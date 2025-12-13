@@ -152,5 +152,6 @@ module.exports = {
   createDocument,
   getDocumentById,
   updateDocument,
-  deleteDocument
+  deleteDocument,
+  getAllDocuments
 };
